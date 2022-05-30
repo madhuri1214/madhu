@@ -1,11 +1,5 @@
 pipeline {
    agent any
-   tools {
-      // Install the Maven version configured as "M3" and add it to the path.
-	  jdk 'java8'
-      maven "Maven3.3.9"
-   }
-   
    stages
    {
    stage('git clone') {
@@ -17,7 +11,7 @@ pipeline {
 	stage ('Compile and Build') {
          steps {
            sh '''
-           mvn clean install -U  -Dmaven.test.skip=true 
+           mvn clean install package
            '''
          }
 	}
