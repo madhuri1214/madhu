@@ -2,25 +2,29 @@ pipeline {
    agent any
 	environment {
 
-      sonar_url = 'http://172.31.12.54:9000/'
+      sonar_url = 'http://172.31.22.66:9000/'
       sonar_username = 'admin'
       sonar_password = 'password123'
-      nexusUrl = '172.31.12.54:8081'
-      artifact_version = '0.0.1'
 
  }
+	tools {
+      // Install the Maven version configured as "M3" and add it to the path.
+	  jdk 'java8'
+      maven "maven"
+   }
+   
    stages
    {
    stage('git clone') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/snehitha-reddy/Game.git'
+            git 'https://github.com/madhuri1214/madhu.git'
         }  
         }
 	stage ('Compile and Build') {
          steps {
            sh '''
-           clean install
+           clean install package
            '''
          }
 	}
