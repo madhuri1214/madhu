@@ -7,11 +7,6 @@ pipeline {
       sonar_password = 'password123'
 
  }
-	tools {
-      // Install the Maven version configured as "M3" and add it to the path.
-	  jdk 'java8'
-      maven "maven"
-   }
    
    stages
    {
