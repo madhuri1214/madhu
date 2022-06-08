@@ -18,9 +18,7 @@ pipeline {
         }
 	stage ('Compile and Build') {
          steps {
-           sh '''
-           clean install package
-           '''
+           sh "mvn clean install package"
          }
 	}
 	   stage ('Sonarqube Analysis'){
