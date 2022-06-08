@@ -13,12 +13,12 @@ pipeline {
    stage('git clone') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/madhuri1214/madhu.git'
+            git url:'https://github.com/madhuri1214/madhu.git'
         }  
         }
 	stage ('Compile and Build') {
          steps {
-           sh "mvn clean install package"
+           sh "clean install package"
          }
 	}
 	   stage ('Sonarqube Analysis'){
